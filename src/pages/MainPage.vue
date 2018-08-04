@@ -1,4 +1,6 @@
 <!--主页-->
+<!--weex-ui：https://alibaba.github.io/weex-ui/#/cn/-->
+
 <template>
     <div class="main-page">
 
