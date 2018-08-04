@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.weex.app.hotreload.HotReloadManager;
+import com.weex.app.test.R;
 import com.weex.app.util.AppConfig;
 import com.weex.app.util.Constants;
 import com.google.zxing.integration.android.IntentIntegrator;

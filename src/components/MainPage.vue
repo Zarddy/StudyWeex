@@ -1,82 +1,40 @@
 <template>
-    <div class="main-page">
 
+    <!--切换页-->
+    <wxc-tab-bar :tab-titles="tabTitles"
+                 :tab-styles="tabStyles"
+                 title-type="icon"
+                 @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
 
+        <!-- 第一个页面内容-->
+        <div class="item-container" :style="contentStyle">
+            <section-main></section-main>
+        </div>
 
+        <!-- 第二个页面内容-->
+        <div class="item-container" :style="contentStyle"><text>特别推荐</text></div>
 
+        <!-- 第三个页面内容-->
+        <div class="item-container" :style="contentStyle"><text>消息中心</text></div>
 
-
-        <!--顶部导航-->
-        <wxc-minibar title="标题"
-                     background-color="#009ff0"
-                     text-color="#FFFFFF"
-                     right-text="更多"
-                     left-text=" "
-                     @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
-                     @wxcMinibarRightButtonClicked="minibarRightButtonClick">
-        </wxc-minibar>
-        <!--顶部导航-->
-
-
-        <wxc-ep-slider :slider-id="sliderId"
-                       :card-length='cardLength'
-                       :card-s="cardSize"
-                       :select-index="2"
-                       :auto-play="true"
-                       @wxcEpSliderCurrentIndexSelected="wxcEpSliderCurrentIndexSelected">
-
-            <!--自动生成demo-->
-            <div v-for="(v,index) in [1,2,3,4,5]"
-                 :key="index"
-                 :slot="`card${index}_${sliderId}`"
-                 :class="['slider',`slider${index}`]">
-                <text>这里是第{{index + 1}}个滑块</text>
-            </div>
-        </wxc-ep-slider>
-
-
-
-
-<div>
-
-
-        <template>
-
-
-
-            <wxc-tab-bar :tab-titles="tabTitles"
-                         :tab-styles="tabStyles"
-                         title-type="icon"
-                         @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-
-                <!-- 第一个页面内容-->
-                <div class="item-container" :style="contentStyle"><text>首页</text></div>
-
-                <!-- 第二个页面内容-->
-                <div class="item-container" :style="contentStyle"><text>特别推荐</text></div>
-
-                <!-- 第三个页面内容-->
-                <div class="item-container" :style="contentStyle"><text>消息中心</text></div>
-
-                <!-- 第四个页面内容-->
-                <div class="item-container" :style="contentStyle"><text>我的主页</text></div>
-            </wxc-tab-bar>
-
-        </template>
-</div>
-
-    </div>
+        <!-- 第四个页面内容-->
+        <div class="item-container" :style="contentStyle"><text>我的主页</text></div>
+    </wxc-tab-bar>
+    <!--切换页-->
 
 </template>
 
 <script>
     import { WxcMinibar, WxcEpSlider, WxcButton, WxcPopup, WxcTabBar, Utils } from 'weex-ui';
+    import SectionMain from './SectionMain.vue';
 
     import Config from '../tabbar'
 
     export default {
         name: "MainPage",
-        components: { WxcMinibar, WxcEpSlider, WxcButton, WxcPopup, WxcTabBar },
+        components: {
+            SectionMain,
+            WxcMinibar, WxcEpSlider, WxcButton, WxcPopup, WxcTabBar},
         data() {
             return {
                 isShow: false,
